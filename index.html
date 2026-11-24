@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emerging Virtual Sport Event 2026</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0B132B',
+                            light: '#1C2541',
+                            card: '#131C35',
+                            border: '#1E294B'
+                        },
+                        smartblue: {
+                            DEFAULT: '#3A86FF',
+                            hover: '#2563EB',
+                            light: 'rgba(58, 134, 255, 0.12)',
+                            border: 'rgba(58, 134, 255, 0.3)'
+                        },
+                        chartreuse: {
+                            DEFAULT: '#D7FE03',
+                            hover: '#C2E502',
+                            light: 'rgba(215, 254, 3, 0.12)',
+                            border: 'rgba(215, 254, 3, 0.3)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B132B;
+            color: #E2E8F0;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B132B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1C2541;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3A86FF;
+        }
+        .podium-card {
+            transition: all 0.25s ease-in-out;
+        }
+        .podium-card:hover {
+            transform: translateY(-2px);
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.15); }
+        }
+        .animate-pulse-glow {
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-chartreuse selection:text-navy">
+
+    <!-- TOP NAV BAR -->
+    <header class="bg-navy-card border-b border-navy-border sticky top-0 z-30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-2.5">
+                <i class="fa-solid fa-person-walking text-smartblue text-base sm:text-lg"></i>
+                <h1 class="font-extrabold text-base sm:text-lg tracking-tight text-white flex items-center gap-1.5">
+                    EMERGING VIRTUAL <span class="text-chartreuse">WALK</span>
+                </h1>                    
+            </div>
+
+            <!-- Header Right Controls: Live Status & Icon-Only Refresh Button -->
+            <div class="flex items-center space-x-3">
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-semibold tracking-wide">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-glow"></span>
+                    LIVE
+                </div>
+                <button onclick="fetchLiveBackendData(true)" title="Refresh Sync" class="text-gray-400 hover:text-chartreuse text-xs font-semibold p-1.5 transition-colors flex items-center justify-center">
+                    <i class="fa-solid fa-rotate text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow w-full space-y-6">
+
+        <!-- STRAVA RULES & BANNER -->
+        <div class="bg-navy-card border border-navy-border rounded-xl p-5 relative overflow-hidden">
+            <div class="space-y-3 relative z-10">
+                <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
+                    Walk Anytime, Anywhere • Walk Your Own Pace • Complete target goal distance to earn your Finisher status on the official leaderboard.
+                </p>
+
+                <!-- Rules & Event Info Box (4-Column Layout) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
+                    <div class="flex items-start space-x-2.5 bg-navy/60 p-2.5 rounded-lg border border-navy-border/80">
+                        <div class="text-smartblue text-sm pt-0.5"><i class="fa-solid fa-calendar-days"></i></div>
+                        <div>
+                            <h4 class="text-[11px] font-bold uppercase text-chartreuse">Activity Period</h4>
+                            <p class="text-[11px] text-gray-400">Nov 16 – Dec 13, 2026</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-2.5 bg-navy/60 p-2.5 rounded-lg border border-navy-border/80">
+                        <div class="text-smartblue text-sm pt-0.5"><i class="fa-brands fa-strava"></i></div>
+                        <div>
+                            <h4 class="text-[11px] font-bold uppercase text-chartreuse">Rule 1: Record Activity</h4>
+                            <p class="text-[11px] text-gray-400">All walkers must use Strava to record their walking/hiking activities.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-2.5 bg-navy/60 p-2.5 rounded-lg border border-navy-border/80">
+                        <div class="text-smartblue text-sm pt-0.5"><i class="fa-solid fa-users"></i></div>
+                        <div>
+                            <h4 class="text-[11px] font-bold uppercase text-chartreuse">Rule 2: Join Strava Club</h4>
+                            <p class="text-[11px] text-gray-400">Join the official <a href="https://www.strava.com/clubs/2426652" target="_blank" rel="noopener noreferrer" class="text-chartreuse hover:underline font-semibold inline-flex items-center gap-1">Emerging Walking Club<i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a> for automatic verification.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-2.5 bg-navy/60 p-2.5 rounded-lg border border-navy-border/80">
+                        <div class="text-smartblue text-sm pt-0.5"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                            <h4 class="text-[11px] font-bold uppercase text-chartreuse">Rule 3: Don't Cheat</h4>
+                            <p class="text-[11px] text-gray-400">Don't use fake GPS and play fairness.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EVENT OVERVIEW STATS CARDS -->
+        <section class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 w-full">
+            <div class="bg-navy-card p-4 rounded-xl border border-navy-border text-center">
+                <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Target</span>
+                <div id="statTargetGoal" class="text-xl font-bold text-chartreuse mt-0.5">21.00 <span class="text-xs font-normal text-gray-400">km</span></div>
+                <span class="text-[10px] text-gray-400">Event Target</span>
+            </div>
+            <div class="bg-navy-card p-4 rounded-xl border border-navy-border text-center">
+                <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Participants</span>
+                <div id="statTotalRiders" class="text-xl font-bold text-white mt-0.5">0</div>
+                <span class="text-[10px] text-gray-400">Active Walkers</span>
+            </div>
+            <div class="bg-navy-card p-4 rounded-xl border border-navy-border text-center">
+                <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Total Distance</span>
+                <div id="statTotalDistance" class="text-xl font-bold text-white mt-0.5">0.00 <span class="text-xs font-normal text-gray-400">km</span></div>
+                <span class="text-[10px] text-gray-400">Combined Logs</span>
+            </div>
+            <div class="bg-navy-card p-4 rounded-xl border border-navy-border text-center">
+                <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Finishers</span>
+                <div id="statFinishersCount" class="text-xl font-bold text-chartreuse mt-0.5">0</div>
+                <span class="text-[10px] text-gray-400">Hit Target Goal</span>
+            </div>
+        </section>
+
+        <!-- PODIUM FINISHER TRACKER -->
+        <section class="space-y-3">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-trophy text-chartreuse text-sm"></i> PODIUM FINISHER 
+                    </h3>
+                    <p class="text-xs text-gray-400">Top 3 participants who completed the target goal. (Based on FINISH TIME)</p>
+                </div>
+                <div id="syncStatusTag" class="text-xs text-gray-400 hidden sm:block font-mono">
+                    Updated: Just now
+                </div>
+            </div>
+
+            <!-- 3 Podium Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="podiumContainer">
+                <!-- JavaScript renders 1st, 2nd, 3rd podium cards or "Podium available" state -->
+            </div>
+        </section>
+
+        <!-- LEADERBOARD STREAM SECTION HEADER -->
+        <section class="space-y-3">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-list-ol text-smartblue text-sm"></i> LEADERBOARD STREAM
+                    </h3>
+                    <p class="text-xs text-gray-400">Live participant standings and accumulated metrics</p>
+                </div>
+            </div>
+
+            <!-- MAIN BOX CONTAINER FOR TABS & TABLES -->
+            <div class="bg-navy-card border border-navy-border rounded-xl overflow-hidden space-y-0">
+                <!-- Navigation Header for Tabs & Search -->
+                <div class="p-4 border-b border-navy-border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div class="flex space-x-4 border-b sm:border-b-0 border-navy-border w-full sm:w-auto pb-2 sm:pb-0">
+                        <!-- Tab 1: Main -->
+                        <button id="tabBtnLeaderboard" onclick="switchTab('leaderboard')" class="text-xs font-bold text-chartreuse border-b-2 border-chartreuse pb-1 transition-colors flex items-center gap-1.5">
+                            <i class="fa-solid fa-flag-checkered text-[11px]"></i> Main
+                        </button>
+                        <!-- Tab 2: by Distance -->
+                        <button id="tabBtnLeaderboardDist" onclick="switchTab('distance')" class="text-xs font-medium text-gray-400 hover:text-white pb-1 transition-colors flex items-center gap-1.5">
+                            <i class="fa-solid fa-route text-[11px]"></i> by Distance
+                        </button>
+                        <!-- Tab 3: by Finish Time -->
+                        <button id="tabBtnLeaderboardTime" onclick="switchTab('finishtime')" class="text-xs font-medium text-gray-400 hover:text-white pb-1 transition-colors flex items-center gap-1.5">
+                            <i class="fa-regular fa-clock text-[11px]"></i> by Finish Time
+                        </button>
+                    </div>
+
+                    <div class="flex items-center space-x-3 w-full sm:w-auto">
+                        <div class="relative w-full sm:w-56">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                            <input type="text" id="searchInput" onkeyup="filterLeaderboardData()" placeholder="Search walker..." class="w-full pl-8 pr-3 py-1.5 bg-navy border border-navy-border rounded-lg text-xs text-white focus:outline-none focus:border-smartblue transition-colors">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 1: MAIN LEADERBOARD TABLE -->
+                <div id="leaderboardTab" class="block overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-navy/50 text-gray-400 text-[11px] font-semibold uppercase tracking-wider border-b border-navy-border">
+                                <th class="py-3 px-4 w-12 text-center">Rank</th>
+                                <th class="py-3 px-4">Walker</th>
+                                <th class="py-3 px-4">Distance Progress</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardBody" class="divide-y divide-navy-border text-xs">
+                            <!-- Main Leaderboard Rows rendered via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- TAB 2: LEADERBOARD BY DISTANCE TABLE -->
+                <div id="leaderboardDistTab" class="hidden overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-navy/50 text-gray-400 text-[11px] font-semibold uppercase tracking-wider border-b border-navy-border">
+                                <th class="py-3 px-4 w-12 text-center">Rank</th>
+                                <th class="py-3 px-4">Walker</th>
+                                <th class="py-3 px-4">Distance Progress</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardDistBody" class="divide-y divide-navy-border text-xs">
+                            <!-- Distance Leaderboard Rows rendered via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- TAB 3: LEADERBOARD BY FINISH TIME TABLE -->
+                <div id="leaderboardTimeTab" class="hidden overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-navy/50 text-gray-400 text-[11px] font-semibold uppercase tracking-wider border-b border-navy-border">
+                                <th class="py-3 px-4 w-12 text-center">Rank</th>
+                                <th class="py-3 px-4">Walker</th>
+                                <th class="py-3 px-4">FINISH TIME</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardTimeBody" class="divide-y divide-navy-border text-xs">
+                            <!-- Finish Time Leaderboard Rows rendered via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- LEADERBOARD PAGINATION CONTROLS FOOTER -->
+                <div class="p-3 border-t border-navy-border flex items-center justify-between text-xs text-gray-400">
+                    <div id="leaderboardPaginationInfo">
+                        Showing 0 to 0 of 0 entries
+                    </div>
+                    <div class="flex items-center space-x-3" id="leaderboardPaginationControls">
+                        <button id="btnPrevLeaderboardPage" onclick="changeLeaderboardPage(-1)" disabled class="text-gray-400 hover:text-white disabled:opacity-30 disabled:hover:text-gray-400 font-semibold transition-colors flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-left text-[9px]"></i> Prev
+                        </button>
+                        <div id="leaderboardPageNumbers" class="flex items-center space-x-2 font-mono font-medium">
+                            <!-- Rendered page buttons -->
+                        </div>
+                        <button id="btnNextLeaderboardPage" onclick="changeLeaderboardPage(1)" disabled class="text-gray-400 hover:text-white disabled:opacity-30 disabled:hover:text-gray-400 font-semibold transition-colors flex items-center gap-1">
+                            Next <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACTIVITY STREAM SECTION -->
+        <section class="space-y-3">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-clock-rotate-left text-smartblue text-sm"></i> ACTIVITY STREAM
+                    </h3>
+                    <p class="text-xs text-gray-400">Real-time log of recent walker sync activities</p>
+                </div>
+            </div>
+
+            <!-- ACTIVITY STREAM BOX CONTAINER WITH SEARCH & PAGINATION -->
+            <div class="bg-navy-card border border-navy-border rounded-xl overflow-hidden space-y-0">
+                <!-- Activity Stream Header Controls: Search Input -->
+                <div class="p-4 border-b border-navy-border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div class="text-xs font-semibold text-gray-300 flex items-center gap-1.5">
+                        <i class="fa-solid fa-list-check text-smartblue"></i> Recent Activity Logs
+                    </div>
+                    <div class="flex items-center space-x-3 w-full sm:w-auto">
+                        <div class="relative w-full sm:w-56">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                            <input type="text" id="activitySearchInput" onkeyup="filterActivityData()" placeholder="Search activity..." class="w-full pl-8 pr-3 py-1.5 bg-navy border border-navy-border rounded-lg text-xs text-white focus:outline-none focus:border-smartblue transition-colors">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACTIVITY TABLE STREAM CONTAINER -->
+                <div id="activityLogTab" class="block overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-navy/50 text-gray-400 text-[11px] font-semibold uppercase tracking-wider border-b border-navy-border">
+                                <th class="py-3 px-4">Athlete Name</th>
+                                <th class="py-3 px-4">Distance (km)</th>
+                                <th class="py-3 px-4">Pace (min/km)</th>
+                                <th class="py-3 px-4">Elevation (m)</th>
+                                <th class="py-3 px-4">Moving Time</th>
+                                <th class="py-3 px-4 text-right">Sync Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activityLogBody" class="divide-y divide-navy-border text-xs">
+                            <!-- Activity Feed Rows rendered via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- PAGINATION CONTROLS FOOTER -->
+                <div class="p-3 border-t border-navy-border flex items-center justify-between text-xs text-gray-400">
+                    <div id="activityPaginationInfo">
+                        Showing 0 to 0 of 0 entries
+                    </div>
+                    <div class="flex items-center space-x-3" id="activityPaginationControls">
+                        <button id="btnPrevActivityPage" onclick="changeActivityPage(-1)" disabled class="text-gray-400 hover:text-white disabled:opacity-30 disabled:hover:text-gray-400 font-semibold transition-colors flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-left text-[9px]"></i> Prev
+                        </button>
+                        <div id="activityPageNumbers" class="flex items-center space-x-2 font-mono font-medium">
+                            <!-- Rendered page buttons -->
+                        </div>
+                        <button id="btnNextActivityPage" onclick="changeActivityPage(1)" disabled class="text-gray-400 hover:text-white disabled:opacity-30 disabled:hover:text-gray-400 font-semibold transition-colors flex items-center gap-1">
+                            Next <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-card border-t border-navy-border py-5 mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-3">
+            <div class="flex items-center space-x-2">
+                <i class="fa-brands fa-strava text-smartblue text-sm"></i>
+                <span>Powered by Strava & Google</span>
+            </div>
+            <div>
+                © 2026 NTT Emerging Telco
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-navy-card border border-smartblue text-white text-xs font-medium px-4 py-2.5 rounded-lg shadow-lg flex items-center space-x-2 translate-y-24 opacity-0 transition-all duration-300 z-50">
+        <i class="fa-solid fa-circle-check text-chartreuse text-sm"></i>
+        <span id="toastMessage">Data updated successfully</span>
+    </div>
+
+    <!-- JAVASCRIPT APPLICATION LOGIC -->
+    <script>
+        // CONFIGURATION: Set your deployed Google Apps Script Web App URL here
+        const APPS_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzuvngTuxvyzYylkZb4dOAcoWKJ6gyMvoQ1oBujFAa9CI5iHTWDIazQWUZnyfsyy7NFWQ/exec';
+        const TARGET_GOAL_KM = 21.00;
+        const AUTO_REFRESH_INTERVAL_MS = 300000; // 5 Minutes
+        let autoRefreshTimer = null;
+        let finisherLogGlobal = [];
+
+        // LEADERBOARD STREAM GLOBAL STATE (SEARCH & 10-ITEM PAGINATION)
+        let globalLeaderboardRaw = [];
+        let currentActiveTab = 'leaderboard'; // 'leaderboard', 'distance', 'finishtime'
+        let currentLeaderboardPage = 1;
+        const LEADERBOARD_ITEMS_PER_PAGE = 10;
+        let processedTabDataset = [];
+
+        // ACTIVITY STREAM GLOBAL STATE (FOR SEARCH & 10-ITEM PAGINATION)
+        let globalActivityLogs = [];
+        let filteredActivityLogs = [];
+        let currentActivityPage = 1;
+        const ACTIVITY_ITEMS_PER_PAGE = 10;
+
+        // HELPER FUNCTION: FORMAT DISTANCE SAFELY TO 2 DECIMAL PLACES
+        function formatDistanceKm(val) {
+            const num = parseFloat(val);
+            return isNaN(num) ? '0.00' : num.toFixed(2);
+        }
+
+        // HELPER FUNCTION: FORMAT DATE & TIME CLEANLY WITH FLEXIBLE ISO/DATETIME PARSING
+        function formatDateTime(timestampStr) {
+            if (!timestampStr || timestampStr === '-' || timestampStr === 'N/A') return '-';
+            try {
+                let cleanStr = timestampStr.toString().trim();
+                if (cleanStr.includes(' ') && !cleanStr.includes('T')) {
+                    cleanStr = cleanStr.replace(' ', 'T');
+                }
+                const d = new Date(cleanStr);
+                if (isNaN(d.getTime())) return timestampStr;
+                const datePart = d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+                const timePart = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                return `${datePart} • ${timePart}`;
+            } catch (e) {
+                return timestampStr;
+            }
+        }
+
+        // FALLBACK INITIAL DATASET
+        let sampleLeaderboard = [
+            { rank: 1, athlete_name: 'Marcus Vance', strava_id: '12345678', total_distance_km: 24.50, total_elev_gain_m: 180, total_moving_time: '04:05:00', total_activities: 4, avg_pace_min_km: '10:00', progress: '100%', finisher_status: 'FINISHED', finish_timestamp: '2026-11-18T14:30:00.000Z' },
+            { rank: 2, athlete_name: 'Elena Rostova', strava_id: '87654321', total_distance_km: 22.10, total_elev_gain_m: 140, total_moving_time: '03:48:30', total_activities: 3, avg_pace_min_km: '10:20', progress: '100%', finisher_status: 'FINISHED', finish_timestamp: '2026-11-19T09:15:00.000Z' },
+            { rank: 3, athlete_name: 'Julian Thorne', strava_id: '45678912', total_distance_km: 15.70, total_elev_gain_m: 95, total_moving_time: '02:40:00', total_activities: 2, avg_pace_min_km: '10:11', progress: '74.8%', finisher_status: 'IN PROGRESS' }
+        ];
+
+        let sampleActivityLogs = [
+            { athlete_name: 'Elena Rostova', strava_id: '87654321', distance_km: 8.50, elevation_m: 55, moving_time: '01:25:00', avg_pace_min_km: '10:00', type: 'Walk', sync_timestamp: '2026-11-18T10:00:00.000Z' },
+            { athlete_name: 'Marcus Vance', strava_id: '12345678', distance_km: 10.20, elevation_m: 75, moving_time: '01:42:00', avg_pace_min_km: '10:00', type: 'Walk', sync_timestamp: '2026-11-18T09:30:00.000Z' },
+            { athlete_name: 'Julian Thorne', strava_id: '45678912', distance_km: 7.50, elevation_m: 40, moving_time: '01:16:30', avg_pace_min_km: '10:12', type: 'Walk', sync_timestamp: '2026-11-17T16:45:00.000Z' }
+        ];
+
+        // HELPER FUNCTION: FORMAT TIME VALUES CLEANLY (HH:mm:ss)
+        function formatTimeValue(rawTime) {
+            if (!rawTime || rawTime === '-') return '-';
+            if (typeof rawTime === 'string' && rawTime.includes('T')) {
+                const dateObj = new Date(rawTime);
+                if (!isNaN(dateObj.getTime())) {
+                    const hrs = String(dateObj.getUTCHours()).padStart(2, '0');
+                    const mins = String(dateObj.getUTCMinutes()).padStart(2, '0');
+                    const secs = String(dateObj.getUTCSeconds()).padStart(2, '0');
+                    return `${hrs}:${mins}:${secs}`;
+                }
+            }
+            return rawTime.toString();
+        }
+
+        // HELPER FUNCTION: CALCULATE PACE IN MIN/KM FROM MOVING TIME & DISTANCE
+        function getPaceMinKm(movingTimeStr, distanceKm, rawPace) {
+            if (rawPace && typeof rawPace === 'string' && rawPace.includes(':')) {
+                return rawPace;
+            }
+            if (!distanceKm || distanceKm <= 0 || !movingTimeStr || movingTimeStr === '-') return '-';
+
+            const parts = movingTimeStr.split(':').map(Number);
+            let totalSecs = 0;
+            if (parts.length === 3) {
+                totalSecs = parts[0] * 3600 + parts[1] * 60 + parts[2];
+            } else if (parts.length === 2) {
+                totalSecs = parts[0] * 60 + parts[1];
+            }
+            if (totalSecs <= 0) return '-';
+            
+            const paceSecPerKm = totalSecs / distanceKm;
+            const pMins = Math.floor(paceSecPerKm / 60);
+            const pSecs = Math.floor(paceSecPerKm % 60);
+            return `${pMins}:${pSecs.toString().padStart(2, '0')}`;
+        }
+
+        // HELPER FUNCTION: EXTRACT FINISH TIMESTAMP FOR ATHLETE
+        function getAthleteFinishTimestamp(rider) {
+            const explicitTs = rider.finish_timestamp || rider.finisher_timestamp || rider.finish_time || rider.finishtimestamp;
+            if (explicitTs) return explicitTs;
+
+            if (rider.strava_id && finisherLogGlobal && finisherLogGlobal.length > 0) {
+                const match = finisherLogGlobal.find(f => (f.strava_id || f.stravaid || '').toString().trim() === rider.strava_id.toString().trim());
+                if (match) {
+                    return match.finish_timestamp || match.finishtimestamp || match.timestamp || match.sync_timestamp || '';
+                }
+            }
+            return '';
+        }
+
+        // HELPER TO CONVERT HH:MM:SS TO SECONDS FOR TIE-BREAKING SORT
+        function hmsToSecs(str) {
+            if (!str || typeof str !== 'string' || !str.includes(':')) return 0;
+            const parts = str.split(':').map(Number);
+            return parts.length === 3 ? parts[0] * 3600 + parts[1] * 60 + parts[2] : parts[0] * 60 + parts[1];
+        }
+
+        // INIT APP & AUTO-REFRESH TIMER
+        window.addEventListener('DOMContentLoaded', () => {
+            fetchLiveBackendData(false);
+            startAutoRefreshTimer();
+        });
+
+        // BACKGROUND TIMER CONTROLLER
+        function startAutoRefreshTimer() {
+            if (autoRefreshTimer) clearInterval(autoRefreshTimer);
+            
+            autoRefreshTimer = setInterval(() => {
+                if (!document.hidden) {
+                    fetchLiveBackendData(false);
+                }
+            }, AUTO_REFRESH_INTERVAL_MS);
+        }   
+        
+        // FETCH DATA FROM GOOGLE APPS SCRIPT WEB APP
+        async function fetchLiveBackendData(userInitiated = false) {
+            const refreshBtnIcon = document.querySelector('header button[title="Refresh Sync"] i');
+            if (userInitiated && refreshBtnIcon) {
+                refreshBtnIcon.classList.add('fa-spin');
+            }
+
+            if (!APPS_SCRIPT_WEB_APP_URL || APPS_SCRIPT_WEB_APP_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE') {
+                finisherLogGlobal = [];
+                renderDashboard(sampleLeaderboard, sampleActivityLogs);
+                if (userInitiated) showToast("Using sample data. Configure APPS_SCRIPT_WEB_APP_URL in JavaScript.");
+                if (refreshBtnIcon) refreshBtnIcon.classList.remove('fa-spin');
+                return;
+            }
+
+            try {
+                const response = await fetch(APPS_SCRIPT_WEB_APP_URL);
+                const data = await response.json();
+
+                if (data.finisherLog) {
+                    finisherLogGlobal = data.finisherLog;
+                }
+
+                if (data.leaderboard && data.activityLog) {
+                    renderDashboard(data.leaderboard, data.activityLog);
+                    if (userInitiated) showToast("Successfully synced live data!");
+                } else {
+                    renderDashboard(sampleLeaderboard, sampleActivityLogs);
+                }
+            } catch (err) {
+                console.error("Error fetching live backend data:", err);
+                renderDashboard(sampleLeaderboard, sampleActivityLogs);
+                if (userInitiated) showToast("Failed to fetch endpoint data. Displaying fallback data.");
+            } finally {
+                if (refreshBtnIcon) {
+                    setTimeout(() => refreshBtnIcon.classList.remove('fa-spin'), 500);
+                }
+            }
+        }
+
+        // MAIN RENDER CONTROLLER
+        function renderDashboard(leaderboard, activityLog) {
+            globalLeaderboardRaw = leaderboard || [];
+            renderOverviewHeaderStats(globalLeaderboardRaw);
+            renderPodium(globalLeaderboardRaw);
+            
+            // Process and render active Leaderboard tab with pagination
+            filterLeaderboardData();
+
+            // Setup & Render Activity Log with Search + Pagination
+            setupActivityLogData(activityLog);
+            
+            const now = new Date();
+            document.getElementById('syncStatusTag').innerText = `Updated: ${now.toLocaleTimeString()}`;
+        }
+
+        // 1. OVERVIEW STATS
+        function renderOverviewHeaderStats(leaderboard) {
+            const targetEl = document.getElementById('statTargetGoal');
+            if (targetEl) {
+                targetEl.innerHTML = `${formatDistanceKm(TARGET_GOAL_KM)} <span class="text-xs font-normal text-gray-400">km</span>`;
+            }
+            document.getElementById('statTotalRiders').innerText = leaderboard.length;
+            
+            const grandTotalDist = leaderboard.reduce((sum, r) => sum + (parseFloat(r.total_distance_km) || 0), 0);
+            document.getElementById('statTotalDistance').innerHTML = `${formatDistanceKm(grandTotalDist)} <span class="text-xs font-normal text-gray-400">km</span>`;
+
+            const totalFinishers = leaderboard.filter(r => r.finisher_status === 'FINISHED' || parseFloat(r.total_distance_km) >= TARGET_GOAL_KM).length;
+            document.getElementById('statFinishersCount').innerText = totalFinishers;
+        }
+
+        // 2. PODIUM FINISHER TRACKER RENDERER
+        function renderPodium(leaderboard) {
+            const container = document.getElementById('podiumContainer');
+
+            const finishers = leaderboard
+                .filter(r => r.finisher_status === 'FINISHED' || parseFloat(r.total_distance_km) >= TARGET_GOAL_KM)
+                .sort((a, b) => (parseInt(a.rank) || 99) - (parseInt(b.rank) || 99));
+
+            const podiumConfig = [
+                { rank: 1, title: '1st Place', border: 'border-chartreuse/50', badge: 'text-chartreuse bg-chartreuse/10 border-chartreuse/30' },
+                { rank: 2, title: '2nd Place', border: 'border-smartblue/40', badge: 'text-smartblue bg-smartblue/10 border-smartblue/30' },
+                { rank: 3, title: '3rd Place', border: 'border-gray-500/40', badge: 'text-gray-300 bg-gray-500/10 border-gray-500/30' }
+            ];
+
+            container.innerHTML = podiumConfig.map((config, index) => {
+                const finisher = finishers[index];
+
+                if (finisher) {
+                    const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(finisher.athlete_name)}&background=1C2541&color=3A86FF&bold=true`;
+                    const distVal = parseFloat(finisher.total_distance_km) || 0;
+                    const cleanTime = formatTimeValue(finisher.total_moving_time);
+                    const paceVal = getPaceMinKm(cleanTime, distVal, finisher.avg_pace_min_km || finisher.avg_speed_km_h || finisher.avg_speed_kmh);
+                    const stravaId = finisher.strava_id || finisher.athlete_id || '';
+                    const rawFinishTs = getAthleteFinishTimestamp(finisher);
+                    const formattedFinishTime = formatDateTime(rawFinishTs);
+
+                    const athleteNameHtml = stravaId
+                        ? `<a href="https://www.strava.com/athletes/${stravaId}" target="_blank" rel="noopener noreferrer" class="font-bold text-white text-sm hover:text-chartreuse transition-colors flex items-center gap-1">
+                            ${finisher.athlete_name}
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-gray-400"></i>
+                           </a>`
+                        : `<h4 class="font-bold text-white text-sm">${finisher.athlete_name}</h4>`;
+
+                    return `
+                        <div class="podium-card bg-navy-card border ${config.border} p-4 rounded-xl flex flex-col justify-between space-y-4">
+                            <div>
+                                <div class="flex items-start justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <img src="${avatarUrl}" alt="${finisher.athlete_name}" class="w-10 h-10 rounded-full border border-navy-border object-cover">
+                                        <div>
+                                            ${athleteNameHtml}
+                                            <p class="text-[11px] text-gray-400 mt-0.5">21 KM Target Completed</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded border ${config.badge}">
+                                        ${config.title}
+                                    </span>
+                                </div>
+
+                                <!-- 3-Column Metrics Grid -->
+                                <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-navy-border/60 text-center">
+                                    <div>
+                                        <span class="text-[9px] uppercase tracking-wider text-gray-400 block font-medium">Distance</span>
+                                        <span class="text-xs font-bold text-white">${formatDistanceKm(finisher.total_distance_km)} km</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-[9px] uppercase tracking-wider text-gray-400 block font-medium">Avg Pace</span>
+                                        <span class="text-xs font-bold text-smartblue font-mono">${paceVal} /km</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-[9px] uppercase tracking-wider text-gray-400 block font-medium">Moving Time</span>
+                                        <span class="text-xs font-bold text-gray-300 font-mono">${cleanTime}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Finish Time Info Box -->
+                            <div class="pt-2 border-t border-navy-border/40 flex items-center justify-between text-[11px]">
+                                <span class="text-gray-400 font-medium">Finish Time:</span>
+                                <span class="font-mono text-chartreuse font-semibold">${formattedFinishTime}</span>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    return `
+                        <div class="bg-navy-card/40 border border-dashed border-navy-border p-4 rounded-xl flex flex-col justify-between space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                                    ${config.title}
+                                </span>
+                                <span class="text-[10px] text-gray-500 font-medium">
+                                    Unclaimed
+                                </span>
+                            </div>
+
+                            <div class="py-3 text-center">
+                                <div class="text-xs font-bold text-gray-300">Podium available</div>
+                                <p class="text-[11px] text-gray-500 mt-0.5">Be the next walker to complete the distance target!</p>
+                            </div>
+
+                            <div class="w-full bg-navy rounded-full h-1 overflow-hidden">
+                                <div class="bg-smartblue/30 h-full w-0"></div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }).join('');
+        }
+
+        // LEADERBOARD DATA FILTER & SORT CONTROLLER
+        function filterLeaderboardData() {
+            const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+            
+            // 1. Base Search Filter
+            let filtered = globalLeaderboardRaw.filter(rider => {
+                if (!query) return true;
+                const name = (rider.athlete_name || '').toLowerCase();
+                const status = (rider.finisher_status || '').toLowerCase();
+                const dist = formatDistanceKm(rider.total_distance_km).toLowerCase();
+                return name.includes(query) || status.includes(query) || dist.includes(query);
+            });
+
+            // 2. Sort depending on active tab
+            if (currentActiveTab === 'leaderboard') {
+                // Main Standings (by Rank)
+                processedTabDataset = [...filtered].sort((a, b) => (parseInt(a.rank) || 999) - (parseInt(b.rank) || 999));
+            } else if (currentActiveTab === 'distance') {
+                // By Distance
+                processedTabDataset = [...filtered].sort((a, b) => {
+                    const distA = parseFloat(a.total_distance_km) || 0;
+                    const distB = parseFloat(b.total_distance_km) || 0;
+                    if (Math.abs(distB - distA) >= 0.01) {
+                        return distB - distA;
+                    }
+                    return hmsToSecs(a.total_moving_time) - hmsToSecs(b.total_moving_time);
+                });
+            } else if (currentActiveTab === 'finishtime') {
+                // By Finish Time
+                processedTabDataset = [...filtered].sort((a, b) => {
+                    const isFinA = a.finisher_status === 'FINISHED' || parseFloat(a.total_distance_km) >= TARGET_GOAL_KM;
+                    const isFinB = b.finisher_status === 'FINISHED' || parseFloat(b.total_distance_km) >= TARGET_GOAL_KM;
+
+                    if (isFinA && isFinB) {
+                        const tsA = getAthleteFinishTimestamp(a);
+                        const tsB = getAthleteFinishTimestamp(b);
+                        const timeA = tsA ? new Date(tsA).getTime() : Infinity;
+                        const timeB = tsB ? new Date(tsB).getTime() : Infinity;
+                        if (timeA !== timeB) return timeA - timeB;
+                        return parseFloat(b.total_distance_km) - parseFloat(a.total_distance_km);
+                    }
+                    if (isFinA) return -1;
+                    if (isFinB) return 1;
+                    return parseFloat(b.total_distance_km) - parseFloat(a.total_distance_km);
+                });
+            }
+
+            renderCurrentLeaderboardTab();
+        }
+
+        // RENDER ACTIVE LEADERBOARD TAB WITH 10-ITEM PAGINATION
+        function renderCurrentLeaderboardTab() {
+            const totalItems = processedTabDataset.length;
+            const totalPages = Math.ceil(totalItems / LEADERBOARD_ITEMS_PER_PAGE) || 1;
+
+            if (currentLeaderboardPage > totalPages) currentLeaderboardPage = totalPages;
+            if (currentLeaderboardPage < 1) currentLeaderboardPage = 1;
+
+            const startIndex = (currentLeaderboardPage - 1) * LEADERBOARD_ITEMS_PER_PAGE;
+            const endIndex = Math.min(startIndex + LEADERBOARD_ITEMS_PER_PAGE, totalItems);
+            const pageData = processedTabDataset.slice(startIndex, endIndex);
+
+            if (currentActiveTab === 'leaderboard') {
+                renderLeaderboardTable(pageData);
+            } else if (currentActiveTab === 'distance') {
+                renderLeaderboardDistTable(pageData);
+            } else if (currentActiveTab === 'finishtime') {
+                renderLeaderboardTimeTable(pageData);
+            }
+
+            updateLeaderboardPaginationControls(totalItems > 0 ? startIndex + 1 : 0, endIndex, totalItems, totalPages);
+        }
+
+        // 3. TAB 1: MAIN LEADERBOARD TABLE RENDERER
+        function renderLeaderboardTable(leaderboardPageData) {
+            const tbody = document.getElementById('leaderboardBody');
+
+            if (!leaderboardPageData || leaderboardPageData.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" class="py-6 text-center text-gray-400 text-xs">No walkers found.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = leaderboardPageData.map((rider, index) => {
+                const rank = parseInt(rider.rank) || (index + 1);
+                const isFinisher = rider.finisher_status === 'FINISHED' || parseFloat(rider.total_distance_km) >= TARGET_GOAL_KM;
+                const distance = parseFloat(rider.total_distance_km) || 0;
+                const progressPct = Math.min(100, ((distance / TARGET_GOAL_KM) * 100)).toFixed(1);
+                const stravaId = rider.strava_id || rider.athlete_id || '';
+                const totalRuns = rider.total_activities || rider.activities || 1;
+                const rawFinishTs = getAthleteFinishTimestamp(rider);
+                const formattedFinishTime = formatDateTime(rawFinishTs);
+
+                const athleteNameHtml = stravaId
+                    ? `<a href="https://www.strava.com/athletes/${stravaId}" target="_blank" rel="noopener noreferrer" class="font-bold text-white hover:text-chartreuse transition-colors">
+                        ${rider.athlete_name}
+                       </a>`
+                    : `<span class="font-bold text-white">${rider.athlete_name}</span>`;
+
+                const statusBadgeHtml = isFinisher
+                    ? `<span class="text-[10px] text-chartreuse font-bold">FINISHER</span>`
+                    : `<span class="text-[10px] text-gray-400 font-medium">IN PROGRESS</span>`;
+
+                const totalRunsHtml = `<span class="text-[11px] text-gray-400 font-medium flex items-center gap-1">
+                    <i class="fa-solid fa-person-walking text-[10px] text-smartblue"></i> ${totalRuns} ${totalRuns === 1 ? 'Walk' : 'Walks'}
+                </span>`;
+
+                const finishTimeLineHtml = isFinisher && formattedFinishTime !== '-'
+                    ? `<div class="flex items-center justify-between text-[11px] font-mono text-chartreuse font-bold">
+                        <span>Finish Time:</span>
+                        <span>${formattedFinishTime}</span>
+                       </div>`
+                    : `<div class="flex items-center justify-between text-[11px] font-mono text-gray-500">
+                        <span>Finish Time:</span>
+                        <span>-</span>
+                       </div>`;
+
+                return `
+                    <tr class="hover:bg-navy/40 transition-colors">
+                        <td class="py-3 px-4 font-bold ${rank <= 3 ? 'text-chartreuse' : 'text-gray-300'} text-center">
+                            ${rank <= 3 ? `#${rank}` : rank}
+                        </td>
+                        <td class="py-3 px-4">
+                            <div class="flex flex-col space-y-0.5">
+                                <div>${athleteNameHtml}</div>
+                                <div>${statusBadgeHtml}</div>
+                                <div>${totalRunsHtml}</div>
+                            </div>
+                        </td>
+                        <td class="py-3 px-4 min-w-[200px]">
+                            <div class="flex flex-col space-y-1">
+                                <div class="flex items-center justify-between text-xs font-mono">
+                                    <span class="font-bold text-white">${formatDistanceKm(distance)} / <span class="text-gray-400 font-normal">${formatDistanceKm(TARGET_GOAL_KM)} km</span></span>
+                                    <span class="text-[11px] ${isFinisher ? 'text-chartreuse font-bold' : 'text-gray-400'}">${progressPct}%</span>
+                                </div>
+                                <div class="w-full bg-navy rounded-full h-1.5 overflow-hidden">
+                                    <div class="h-full ${isFinisher ? 'bg-chartreuse' : 'bg-smartblue'} transition-all duration-300" style="width: ${progressPct}%"></div>
+                                </div>
+                                ${finishTimeLineHtml}
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // 4. TAB 2: LEADERBOARD BY DISTANCE TABLE RENDERER
+        function renderLeaderboardDistTable(leaderboardPageData) {
+            const tbody = document.getElementById('leaderboardDistBody');
+
+            if (!leaderboardPageData || leaderboardPageData.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" class="py-6 text-center text-gray-400 text-xs">No walkers found.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = leaderboardPageData.map((rider, index) => {
+                const rank = (currentLeaderboardPage - 1) * LEADERBOARD_ITEMS_PER_PAGE + index + 1;
+                const isFinisher = rider.finisher_status === 'FINISHED' || parseFloat(rider.total_distance_km) >= TARGET_GOAL_KM;
+                const distance = parseFloat(rider.total_distance_km) || 0;
+                const stravaId = rider.strava_id || rider.athlete_id || '';
+                const totalRuns = rider.total_activities || rider.activities || 1;
+
+                const athleteNameHtml = stravaId
+                    ? `<a href="https://www.strava.com/athletes/${stravaId}" target="_blank" rel="noopener noreferrer" class="font-bold text-white hover:text-chartreuse transition-colors">
+                        ${rider.athlete_name}
+                       </a>`
+                    : `<span class="font-bold text-white">${rider.athlete_name}</span>`;
+
+                const statusBadgeHtml = isFinisher
+                    ? `<span class="text-[10px] text-chartreuse font-bold">FINISHER</span>`
+                    : `<span class="text-[10px] text-gray-400 font-medium">IN PROGRESS</span>`;
+
+                const totalRunsHtml = `<span class="text-[11px] text-gray-400 font-medium flex items-center gap-1">
+                    <i class="fa-solid fa-person-walking text-[10px] text-smartblue"></i> Activity: ${totalRuns}
+                </span>`;
+
+                return `
+                    <tr class="hover:bg-navy/40 transition-colors">
+                        <td class="py-3 px-4 font-bold text-gray-300 text-center">${rank}</td>
+                        <td class="py-3 px-4">
+                            <div class="flex flex-col space-y-0.5">
+                                <div>${athleteNameHtml}</div>
+                                <div>${statusBadgeHtml}</div>
+                            </div>
+                        </td>
+                        <td class="py-3 px-4">
+                            <div class="flex flex-col space-y-0.5">
+                                <div class="font-bold text-white font-mono">
+                                    ${formatDistanceKm(distance)} km
+                                </div>
+                                <div>${totalRunsHtml}</div>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // 5. TAB 3: LEADERBOARD BY FINISH TIME TABLE RENDERER
+        function renderLeaderboardTimeTable(leaderboardPageData) {
+            const tbody = document.getElementById('leaderboardTimeBody');
+
+            if (!leaderboardPageData || leaderboardPageData.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" class="py-6 text-center text-gray-400 text-xs">No walkers found.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = leaderboardPageData.map((rider, index) => {
+                const rank = (currentLeaderboardPage - 1) * LEADERBOARD_ITEMS_PER_PAGE + index + 1;
+                const isFinisher = rider.finisher_status === 'FINISHED' || parseFloat(rider.total_distance_km) >= TARGET_GOAL_KM;
+                const stravaId = rider.strava_id || rider.athlete_id || '';
+                const totalRuns = rider.total_activities || rider.activities || 1;
+                const rawFinishTs = getAthleteFinishTimestamp(rider);
+                const formattedFinishTime = formatDateTime(rawFinishTs);
+
+                const athleteNameHtml = stravaId
+                    ? `<a href="https://www.strava.com/athletes/${stravaId}" target="_blank" rel="noopener noreferrer" class="font-bold text-white hover:text-chartreuse transition-colors">
+                        ${rider.athlete_name}
+                       </a>`
+                    : `<span class="font-bold text-white">${rider.athlete_name}</span>`;
+
+                const statusBadgeHtml = isFinisher
+                    ? `<span class="text-[10px] text-chartreuse font-bold">FINISHER</span>`
+                    : `<span class="text-[10px] text-gray-400 font-medium">IN PROGRESS</span>`;
+
+                const totalRunsHtml = `<span class="text-[11px] text-gray-400 font-medium flex items-center gap-1">
+                    <i class="fa-solid fa-person-walking text-[10px] text-smartblue"></i> Activity: ${totalRuns}
+                </span>`;
+
+                return `
+                    <tr class="hover:bg-navy/40 transition-colors">
+                        <td class="py-3 px-4 font-bold text-gray-300 text-center">${rank}</td>
+                        <td class="py-3 px-4">
+                            <div class="flex flex-col space-y-0.5">
+                                <div>${athleteNameHtml}</div>
+                                <div>${statusBadgeHtml}</div>
+                            </div>
+                        </td>
+                        <td class="py-3 px-4">
+                            <div class="flex flex-col space-y-0.5">
+                                <div class="font-bold text-chartreuse font-mono">
+                                    ${formattedFinishTime}
+                                </div>
+                                <div>${totalRunsHtml}</div>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // UPDATE LEADERBOARD PAGINATION CONTROLS STATE & BUTTONS
+        function updateLeaderboardPaginationControls(startItem, endItem, totalItems, totalPages) {
+            const infoEl = document.getElementById('leaderboardPaginationInfo');
+            const prevBtn = document.getElementById('btnPrevLeaderboardPage');
+            const nextBtn = document.getElementById('btnNextLeaderboardPage');
+            const pageNumbersEl = document.getElementById('leaderboardPageNumbers');
+
+            infoEl.innerText = totalItems > 0 ? `Showing ${startItem}–${endItem} of ${totalItems}` : `Showing 0 entries`;
+
+            prevBtn.disabled = currentLeaderboardPage <= 1 || totalItems === 0;
+            nextBtn.disabled = currentLeaderboardPage >= totalPages || totalItems === 0;
+
+            let pageButtonsHtml = '';
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === currentLeaderboardPage) {
+                    pageButtonsHtml += `<span class="text-chartreuse font-bold">${i}</span>`;
+                } else {
+                    pageButtonsHtml += `<button onclick="goToLeaderboardPage(${i})" class="text-gray-400 hover:text-white transition-colors">${i}</button>`;
+                }
+            }
+            pageNumbersEl.innerHTML = pageButtonsHtml;
+        }
+
+        // CHANGE LEADERBOARD PAGE (PREVIOUS / NEXT)
+        function changeLeaderboardPage(delta) {
+            currentLeaderboardPage += delta;
+            renderCurrentLeaderboardTab();
+        }
+
+        // GO TO SPECIFIC LEADERBOARD PAGE
+        function goToLeaderboardPage(pageNum) {
+            currentLeaderboardPage = pageNum;
+            renderCurrentLeaderboardTab();
+        }
+
+        // 6. SETUP ACTIVITY LOG DATA & INITIALIZE PAGINATION
+        function setupActivityLogData(activityLog) {
+            if (!activityLog || activityLog.length === 0) {
+                globalActivityLogs = [];
+                filteredActivityLogs = [];
+            } else {
+                globalActivityLogs = [...activityLog]
+                    .filter(log => log && log.athlete_name && log.athlete_name.toString().trim() !== '')
+                    .sort((a, b) => {
+                        const getTime = (ts) => {
+                            if (!ts) return 0;
+                            let cleanStr = ts.toString().trim();
+                            if (cleanStr.includes(' ') && !cleanStr.includes('T')) {
+                                cleanStr = cleanStr.replace(' ', 'T');
+                            }
+                            const parsed = new Date(cleanStr).getTime();
+                            return isNaN(parsed) ? 0 : parsed;
+                        };
+                        return getTime(b.sync_timestamp || b.synctimestamp || b.timestamp) - getTime(a.sync_timestamp || a.synctimestamp || a.timestamp);
+                    });
+            }
+
+            filterActivityData();
+        }
+
+        // ACTIVITY STREAM SEARCH FILTER HANDLER
+        function filterActivityData() {
+            const query = (document.getElementById('activitySearchInput').value || '').toLowerCase().trim();
+            
+            if (!query) {
+                filteredActivityLogs = [...globalActivityLogs];
+            } else {
+                filteredActivityLogs = globalActivityLogs.filter(log => {
+                    const name = (log.athlete_name || '').toLowerCase();
+                    const dist = formatDistanceKm(log.distance_km || log.distance).toLowerCase();
+                    const movingTime = formatTimeValue(log.moving_time).toLowerCase();
+                    const timeStamp = formatDateTime(log.sync_timestamp || log.synctimestamp || log.timestamp || '').toLowerCase();
+                    return name.includes(query) || dist.includes(query) || movingTime.includes(query) || timeStamp.includes(query);
+                });
+            }
+
+            currentActivityPage = 1;
+            renderActivityLogTable();
+        }
+
+        // RENDER PAGINATED ACTIVITY LOG TABLE
+        function renderActivityLogTable() {
+            const tbody = document.getElementById('activityLogBody');
+            const totalItems = filteredActivityLogs.length;
+
+            if (totalItems === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="py-6 text-center text-gray-400 text-xs">No activity log entries found.</td></tr>`;
+                updateActivityPaginationControls(0, 0, 0, 0);
+                return;
+            }
+
+            const totalPages = Math.ceil(totalItems / ACTIVITY_ITEMS_PER_PAGE);
+            if (currentActivityPage > totalPages) currentActivityPage = totalPages;
+            if (currentActivityPage < 1) currentActivityPage = 1;
+
+            const startIndex = (currentActivityPage - 1) * ACTIVITY_ITEMS_PER_PAGE;
+            const endIndex = Math.min(startIndex + ACTIVITY_ITEMS_PER_PAGE, totalItems);
+            const pageData = filteredActivityLogs.slice(startIndex, endIndex);
+
+            tbody.innerHTML = pageData.map(log => {
+                const rawTimestamp = log.sync_timestamp || log.synctimestamp || log.timestamp || '';
+                const formattedTimestamp = formatDateTime(rawTimestamp);
+
+                const cleanMovingTime = formatTimeValue(log.moving_time);
+                const distKm = parseFloat(log.distance_km || log.distance) || 0;
+                const paceVal = getPaceMinKm(cleanMovingTime, distKm, log.avg_pace_min_km || log.avg_speed_km_h || log.avg_speed_kmh);
+                const stravaId = log.strava_id || log.athlete_id || '';
+
+                const nameHtml = stravaId
+                    ? `<a href="https://www.strava.com/athletes/${stravaId}" target="_blank" rel="noopener noreferrer" class="font-semibold text-white hover:text-chartreuse transition-colors">
+                        ${log.athlete_name}
+                       </a>`
+                    : `<span class="font-semibold text-white">${log.athlete_name}</span>`;
+
+                return `
+                    <tr class="hover:bg-navy/40 transition-colors">
+                        <td class="py-3 px-4">${nameHtml}</td>
+                        <td class="py-3 px-4 font-semibold text-white font-mono">${formatDistanceKm(distKm)} km</td>
+                        <td class="py-3 px-4 font-mono text-smartblue font-semibold">${paceVal} /km</td>
+                        <td class="py-3 px-4 font-mono text-gray-300">${log.elevation_m || log.elevation || 0} m</td>
+                        <td class="py-3 px-4 font-mono text-gray-300">${cleanMovingTime}</td>
+                        <td class="py-3 px-4 text-right font-mono text-gray-400">${formattedTimestamp}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            updateActivityPaginationControls(startIndex + 1, endIndex, totalItems, totalPages);
+        }
+
+        // UPDATE PAGINATION CONTROL STATE & BUTTONS
+        function updateActivityPaginationControls(startItem, endItem, totalItems, totalPages) {
+            const infoEl = document.getElementById('activityPaginationInfo');
+            const prevBtn = document.getElementById('btnPrevActivityPage');
+            const nextBtn = document.getElementById('btnNextActivityPage');
+            const pageNumbersEl = document.getElementById('activityPageNumbers');
+
+            infoEl.innerText = totalItems > 0 ? `Showing ${startItem}–${endItem} of ${totalItems}` : `Showing 0 entries`;
+
+            prevBtn.disabled = currentActivityPage <= 1 || totalItems === 0;
+            nextBtn.disabled = currentActivityPage >= totalPages || totalItems === 0;
+
+            let pageButtonsHtml = '';
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === currentActivityPage) {
+                    pageButtonsHtml += `<span class="text-chartreuse font-bold">${i}</span>`;
+                } else {
+                    pageButtonsHtml += `<button onclick="goToActivityPage(${i})" class="text-gray-400 hover:text-white transition-colors">${i}</button>`;
+                }
+            }
+            pageNumbersEl.innerHTML = pageButtonsHtml;
+        }
+
+        // CHANGE ACTIVITY PAGE (PREVIOUS / NEXT)
+        function changeActivityPage(delta) {
+            currentActivityPage += delta;
+            renderActivityLogTable();
+        }
+
+        // GO TO SPECIFIC ACTIVITY PAGE
+        function goToActivityPage(pageNum) {
+            currentActivityPage = pageNum;
+            renderActivityLogTable();
+        }
+
+        // TAB SWITCHING (LEADERBOARD STREAM TABS ONLY)
+        function switchTab(tabName) {
+            currentActiveTab = tabName;
+            currentLeaderboardPage = 1;
+
+            const leaderboardTab = document.getElementById('leaderboardTab');
+            const leaderboardDistTab = document.getElementById('leaderboardDistTab');
+            const leaderboardTimeTab = document.getElementById('leaderboardTimeTab');
+            
+            const tabBtnLeaderboard = document.getElementById('tabBtnLeaderboard');
+            const tabBtnLeaderboardDist = document.getElementById('tabBtnLeaderboardDist');
+            const tabBtnLeaderboardTime = document.getElementById('tabBtnLeaderboardTime');
+
+            const activeBtnClass = "text-xs font-bold text-chartreuse border-b-2 border-chartreuse pb-1 transition-colors flex items-center gap-1.5";
+            const inactiveBtnClass = "text-xs font-medium text-gray-400 hover:text-white pb-1 transition-colors flex items-center gap-1.5";
+
+            if (tabName === 'leaderboard') {
+                leaderboardTab.classList.remove('hidden');
+                leaderboardDistTab.classList.add('hidden');
+                leaderboardTimeTab.classList.add('hidden');
+                
+                tabBtnLeaderboard.className = activeBtnClass;
+                tabBtnLeaderboardDist.className = inactiveBtnClass;
+                tabBtnLeaderboardTime.className = inactiveBtnClass;
+            } else if (tabName === 'distance') {
+                leaderboardTab.classList.add('hidden');
+                leaderboardDistTab.classList.remove('hidden');
+                leaderboardTimeTab.classList.add('hidden');
+
+                tabBtnLeaderboard.className = inactiveBtnClass;
+                tabBtnLeaderboardDist.className = activeBtnClass;
+                tabBtnLeaderboardTime.className = inactiveBtnClass;
+            } else if (tabName === 'finishtime') {
+                leaderboardTab.classList.add('hidden');
+                leaderboardDistTab.classList.add('hidden');
+                leaderboardTimeTab.classList.remove('hidden');
+
+                tabBtnLeaderboard.className = inactiveBtnClass;
+                tabBtnLeaderboardDist.className = inactiveBtnClass;
+                tabBtnLeaderboardTime.className = activeBtnClass;
+            }
+
+            filterLeaderboardData();
+        }
+
+        // LEADERBOARD STREAM SEARCH FILTER
+        function filterLeaderboardData() {
+            currentLeaderboardPage = 1;
+            const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+            
+            // 1. Base Search Filter
+            let filtered = globalLeaderboardRaw.filter(rider => {
+                if (!query) return true;
+                const name = (rider.athlete_name || '').toLowerCase();
+                const status = (rider.finisher_status || '').toLowerCase();
+                const dist = formatDistanceKm(rider.total_distance_km).toLowerCase();
+                return name.includes(query) || status.includes(query) || dist.includes(query);
+            });
+
+            // 2. Sort depending on active tab
+            if (currentActiveTab === 'leaderboard') {
+                processedTabDataset = [...filtered].sort((a, b) => (parseInt(a.rank) || 999) - (parseInt(b.rank) || 999));
+            } else if (currentActiveTab === 'distance') {
+                processedTabDataset = [...filtered].sort((a, b) => {
+                    const distA = parseFloat(a.total_distance_km) || 0;
+                    const distB = parseFloat(b.total_distance_km) || 0;
+                    if (Math.abs(distB - distA) >= 0.01) {
+                        return distB - distA;
+                    }
+                    return hmsToSecs(a.total_moving_time) - hmsToSecs(b.total_moving_time);
+                });
+            } else if (currentActiveTab === 'finishtime') {
+                processedTabDataset = [...filtered].sort((a, b) => {
+                    const isFinA = a.finisher_status === 'FINISHED' || parseFloat(a.total_distance_km) >= TARGET_GOAL_KM;
+                    const isFinB = b.finisher_status === 'FINISHED' || parseFloat(b.total_distance_km) >= TARGET_GOAL_KM;
+
+                    if (isFinA && isFinB) {
+                        const tsA = getAthleteFinishTimestamp(a);
+                        const tsB = getAthleteFinishTimestamp(b);
+                        const timeA = tsA ? new Date(tsA).getTime() : Infinity;
+                        const timeB = tsB ? new Date(tsB).getTime() : Infinity;
+                        if (timeA !== timeB) return timeA - timeB;
+                        return parseFloat(b.total_distance_km) - parseFloat(a.total_distance_km);
+                    }
+                    if (isFinA) return -1;
+                    if (isFinB) return 1;
+                    return parseFloat(b.total_distance_km) - parseFloat(a.total_distance_km);
+                });
+            }
+
+            renderCurrentLeaderboardTab();
+        }
+
+        // TOAST NOTIFICATION
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').innerText = msg;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
