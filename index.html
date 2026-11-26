@@ -107,68 +107,39 @@
     <!-- MAIN CONTENT CONTAINER -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow w-full space-y-6">
 
-        <!-- STRAVA RULES & BANNER -->
-        <div class="bg-navy-card border border-navy-border rounded-xl p-5 relative overflow-hidden">
-            <div class="space-y-3 relative z-10">
-                <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
-                    Walk Anytime, Anywhere • Walk Your Own Pace • Complete target goal distance to earn your Finisher status on the official leaderboard.
-                </p>
-
-                <!-- Rules & Event Info Box (4-Column Layout) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
-                    <div class="flex items-start space-x-2.5 bg-navy/60 p-2.5 rounded-lg border border-navy-border/80">
-                        <div class="text-smartblue text-sm pt-0.5"><i class="fa-solid fa-calendar-days"></i></div>
-                        <div>
-                            <h4 class="text-[11px] font-bold uppercase text-chartreuse">Activity Period</h4>
-                            <p class="text-[11px] text-gray-400">Nov 16 – Dec 13, 2026</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-2.5 bg-navy/60 p-2.5 rounded-lg border border-navy-border/80">
-                        <div class="text-smartblue text-sm pt-0.5"><i class="fa-brands fa-strava"></i></div>
-                        <div>
-                            <h4 class="text-[11px] font-bold uppercase text-chartreuse">Rule 1: Record Activity</h4>
-                            <p class="text-[11px] text-gray-400">All walkers must use Strava to record their walking/hiking activities.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-2.5 bg-navy/60 p-2.5 rounded-lg border border-navy-border/80">
-                        <div class="text-smartblue text-sm pt-0.5"><i class="fa-solid fa-users"></i></div>
-                        <div>
-                            <h4 class="text-[11px] font-bold uppercase text-chartreuse">Rule 2: Join Strava Club</h4>
-                            <p class="text-[11px] text-gray-400">Join the official <a href="https://www.strava.com/clubs/2426652" target="_blank" rel="noopener noreferrer" class="text-chartreuse hover:underline font-semibold inline-flex items-center gap-1">Emerging Walking Club<i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a> for automatic verification.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-2.5 bg-navy/60 p-2.5 rounded-lg border border-navy-border/80">
-                        <div class="text-smartblue text-sm pt-0.5"><i class="fa-solid fa-shield-halved"></i></div>
-                        <div>
-                            <h4 class="text-[11px] font-bold uppercase text-chartreuse">Rule 3: Don't Cheat</h4>
-                            <p class="text-[11px] text-gray-400">Don't use fake GPS and play fairness.</p>
-                        </div>
-                    </div>
+        <!-- EVENT OVERVIEW SECTION HEADER & STATS CARDS -->
+        <section class="space-y-3">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-chart-pie text-chartreuse text-sm"></i> EVENT OVERVIEW
+                    </h3>
+                    <p class="text-xs text-gray-400">Cumulative metrics and overall event status</p>
                 </div>
             </div>
-        </div>
 
-        <!-- EVENT OVERVIEW STATS CARDS -->
-        <section class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 w-full">
-            <div class="bg-navy-card p-4 rounded-xl border border-navy-border text-center">
-                <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Target</span>
-                <div id="statTargetGoal" class="text-xl font-bold text-chartreuse mt-0.5">0.00 <span class="text-xs font-normal text-gray-400">km</span></div>
-                <span class="text-[10px] text-gray-400">Event Target</span>
-            </div>
-            <div class="bg-navy-card p-4 rounded-xl border border-navy-border text-center">
-                <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Participants</span>
-                <div id="statTotalRiders" class="text-xl font-bold text-white mt-0.5">0</div>
-                <span class="text-[10px] text-gray-400">Active Walkers</span>
-            </div>
-            <div class="bg-navy-card p-4 rounded-xl border border-navy-border text-center">
-                <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Total Distance</span>
-                <div id="statTotalDistance" class="text-xl font-bold text-white mt-0.5">0.00 <span class="text-xs font-normal text-gray-400">km</span></div>
-                <span class="text-[10px] text-gray-400">Combined Logs</span>
-            </div>
-            <div class="bg-navy-card p-4 rounded-xl border border-navy-border text-center">
-                <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Finishers</span>
-                <div id="statFinishersCount" class="text-xl font-bold text-chartreuse mt-0.5">0</div>
-                <span class="text-[10px] text-gray-400">Hit Target Goal</span>
+            <!-- EVENT OVERVIEW STATS CARDS -->
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 w-full">
+                <div class="bg-navy-card p-4 rounded-xl border border-navy-border text-center">
+                    <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Target</span>
+                    <div id="statTargetGoal" class="text-xl font-bold text-chartreuse mt-0.5">0.00 <span class="text-xs font-normal text-gray-400">km</span></div>
+                    <span class="text-[10px] text-gray-400">Event Target</span>
+                </div>
+                <div class="bg-navy-card p-4 rounded-xl border border-navy-border text-center">
+                    <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Participants</span>
+                    <div id="statTotalRiders" class="text-xl font-bold text-white mt-0.5">0</div>
+                    <span class="text-[10px] text-gray-400">Active Walkers</span>
+                </div>
+                <div class="bg-navy-card p-4 rounded-xl border border-navy-border text-center">
+                    <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Total Distance</span>
+                    <div id="statTotalDistance" class="text-xl font-bold text-white mt-0.5">0.00 <span class="text-xs font-normal text-gray-400">km</span></div>
+                    <span class="text-[10px] text-gray-400">Combined Logs</span>
+                </div>
+                <div class="bg-navy-card p-4 rounded-xl border border-navy-border text-center">
+                    <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Finishers</span>
+                    <div id="statFinishersCount" class="text-xl font-bold text-chartreuse mt-0.5">0</div>
+                    <span class="text-[10px] text-gray-400">Hit Target Goal</span>
+                </div>
             </div>
         </section>
 
@@ -1231,54 +1202,6 @@
             }
 
             filterLeaderboardData();
-        }
-
-        // LEADERBOARD STREAM SEARCH FILTER
-        function filterLeaderboardData() {
-            currentLeaderboardPage = 1;
-            const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
-            
-            // 1. Base Search Filter
-            let filtered = globalLeaderboardRaw.filter(rider => {
-                if (!query) return true;
-                const name = (rider.athlete_name || '').toLowerCase();
-                const status = (rider.finisher_status || '').toLowerCase();
-                const dist = formatDistanceKm(rider.total_distance_km).toLowerCase();
-                return name.includes(query) || status.includes(query) || dist.includes(query);
-            });
-
-            // 2. Sort depending on active tab
-            if (currentActiveTab === 'leaderboard') {
-                processedTabDataset = [...filtered].sort((a, b) => (parseInt(a.rank) || 999) - (parseInt(b.rank) || 999));
-            } else if (currentActiveTab === 'distance') {
-                processedTabDataset = [...filtered].sort((a, b) => {
-                    const distA = parseFloat(a.total_distance_km) || 0;
-                    const distB = parseFloat(b.total_distance_km) || 0;
-                    if (Math.abs(distB - distA) >= 0.01) {
-                        return distB - distA;
-                    }
-                    return hmsToSecs(a.total_moving_time) - hmsToSecs(b.total_moving_time);
-                });
-            } else if (currentActiveTab === 'finishtime') {
-                processedTabDataset = [...filtered].sort((a, b) => {
-                    const isFinA = a.finisher_status === 'FINISHED' || parseFloat(a.total_distance_km) >= TARGET_GOAL_KM;
-                    const isFinB = b.finisher_status === 'FINISHED' || parseFloat(b.total_distance_km) >= TARGET_GOAL_KM;
-
-                    if (isFinA && isFinB) {
-                        const tsA = getAthleteFinishTimestamp(a);
-                        const tsB = getAthleteFinishTimestamp(b);
-                        const timeA = tsA ? new Date(tsA).getTime() : Infinity;
-                        const timeB = tsB ? new Date(tsB).getTime() : Infinity;
-                        if (timeA !== timeB) return timeA - timeB;
-                        return parseFloat(b.total_distance_km) - parseFloat(a.total_distance_km);
-                    }
-                    if (isFinA) return -1;
-                    if (isFinB) return 1;
-                    return parseFloat(b.total_distance_km) - parseFloat(a.total_distance_km);
-                });
-            }
-
-            renderCurrentLeaderboardTab();
         }
 
         // TOAST NOTIFICATION
